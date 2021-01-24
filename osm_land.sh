@@ -36,11 +36,11 @@ while getopts ":c:v" flag; do
 done
 
 # database connection variables
-DB_NAME="osm"
-DB_HOST=""
-DB_PORT=""
-DB_USER=""
-DB_PW=""
+# DB_NAME="osm"
+# DB_HOST="localhost"
+# DB_PORT="5432"
+# DB_USER=""
+# DB_PW=""
 
 # Check if we're using a config file
 if [[ -r $CONFIG_FILE ]]; then source $CONFIG_FILE

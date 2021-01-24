@@ -3,6 +3,7 @@
 */
 
 BEGIN;
+	CREATE INDEX ON osm_transport_lines_gen_1000 (type);
 	CREATE INDEX ON osm_transport_lines_gen0 (type);
 	CREATE INDEX ON osm_transport_lines_gen1 (type);
 	CREATE INDEX ON osm_transport_lines (type);
@@ -12,6 +13,7 @@ BEGIN;
 	CREATE INDEX ON osm_water_lines_gen0 (type);
 	CREATE INDEX ON osm_water_lines_gen1 (type);
 	CREATE INDEX ON osm_water_areas (type);
-	CREATE INDEX ON osm_water_areas_gen0 (type);	
+	CREATE INDEX ON osm_water_areas_gen0 (type);
 	CREATE INDEX ON osm_water_areas_gen1 (type);
+	CREATE INDEX ON osm_water_areas_gen2 (type);
 COMMIT;
