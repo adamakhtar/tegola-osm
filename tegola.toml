@@ -61,28 +61,28 @@ password = "${OSM_DB_PASS}"
 	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, name, class, type FROM osm_transport_areas WHERE geometry && !BBOX!"
 
 	[[providers.layers]]
-	name = "transport_lines_gen_1000_to_motorway"
+	name = "transport_lines_gen_50_to_motorway"
 	geometry_fieldname = "geometry"
 	id_fieldname = "osm_id"
-	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, type, tunnel, bridge, ref FROM osm_transport_lines_gen_1000 WHERE type IN ('motorway') AND tunnel = 0 AND bridge = 0  AND geometry && !BBOX!"
+	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, type, tunnel, bridge, ref FROM osm_transport_lines_gen_50 WHERE type IN ('motorway') AND tunnel = 0 AND bridge = 0  AND geometry && !BBOX!"
 
 	[[providers.layers]]
-	name = "transport_lines_gen_1000_to_primary"
+	name = "transport_lines_gen_50_to_primary"
 	geometry_fieldname = "geometry"
 	id_fieldname = "osm_id"
-	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, type, tunnel, bridge, ref FROM osm_transport_lines_gen_1000 WHERE type IN ('motorway', 'trunk', 'primary') AND tunnel = 0 AND bridge = 0  AND geometry && !BBOX!"
+	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, type, tunnel, bridge, ref FROM osm_transport_lines_gen_50 WHERE type IN ('motorway', 'trunk', 'primary') AND tunnel = 0 AND bridge = 0  AND geometry && !BBOX!"
 
 	[[providers.layers]]
-	name = "transport_lines_gen_1000_to_secondary_no_link"
+	name = "transport_lines_gen_50_to_secondary_no_link"
 	geometry_fieldname = "geometry"
 	id_fieldname = "osm_id"
-	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, type, tunnel, bridge, ref FROM osm_transport_lines_gen_1000 WHERE type IN ('motorway', 'trunk', 'primary', 'secondary') AND tunnel = 0 AND bridge = 0  AND geometry && !BBOX!"
+	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, type, tunnel, bridge, ref FROM osm_transport_lines_gen_50 WHERE type IN ('motorway', 'trunk', 'primary', 'secondary') AND tunnel = 0 AND bridge = 0  AND geometry && !BBOX!"
 
 	[[providers.layers]]
-	name = "transport_lines_upto_tertiary_no_link"
+	name = "transport_lines_gen_50_to_tertiary_no_link"
 	geometry_fieldname = "geometry"
 	id_fieldname = "osm_id"
-	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, class, type, tunnel, bridge FROM osm_transport_lines WHERE type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary') AND geometry && !BBOX!"
+	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, class, type, tunnel, bridge FROM osm_transport_lines_gen_50 WHERE type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary') AND geometry && !BBOX!"
 
 	[[providers.layers]]
 	name = "transport_lines_upto_residential"
@@ -265,25 +265,13 @@ center = [35.688, 139.8742, 8.0] # optional center value. part of the TileJSON s
 
 	[[maps.layers]]
 	name = "transport_lines"
-	provider_layer = "osm.transport_lines_gen_1000_to_motorway"
+	provider_layer = "osm.transport_lines_gen_50_to_primary"
 	min_zoom = 3
-	max_zoom = 3
-
-	[[maps.layers]]
-	name = "transport_lines"
-	provider_layer = "osm.transport_lines_gen_1000_to_primary"
-	min_zoom = 4
-	max_zoom = 4
-
-	[[maps.layers]]
-	name = "transport_lines"
-	provider_layer = "osm.transport_lines_gen_1000_to_secondary_no_link"
-	min_zoom = 5
 	max_zoom = 7
 
 	[[maps.layers]]
 	name = "transport_lines"
-	provider_layer = "osm.transport_lines_upto_tertiary_no_link"
+	provider_layer = "osm.transport_lines_gen_50_to_tertiary_no_link"
 	min_zoom = 8
 	max_zoom = 9
 
