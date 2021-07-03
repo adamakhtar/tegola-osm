@@ -13,6 +13,16 @@
 type = "file"               # a file cache will cache to the local file system
 basepath = "${FILECACHE_BASEPATH}"
 
+[webserver]
+# ssl_cert = "/home/ubuntu/example.crt"
+# ssl_key = "/home/ubuntu/example.key"
+ssl_cert = "${SSL_CERT_PATH}"
+ssl_key = "${SSL_KEY_PATH}"
+
+[webserver.headers]
+# redefine default cors origin
+Access-Control-Allow-Origin = "*"
+
 #   OpenStreetMap (OSM)
 [[providers]]
 name = "osm"
