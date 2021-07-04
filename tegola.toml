@@ -33,11 +33,11 @@ database = "osm"
 user = "${OSM_DB_USER}"
 password = "${OSM_DB_PASS}"
 
-	[[providers.layers]]
-	name = "land_8-20"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid FROM land_polygons WHERE wkb_geometry && !BBOX!"
+	# [[providers.layers]]
+	# name = "land_8-20"
+	# geometry_fieldname = "geometry"
+	# id_fieldname = "ogc_fid"
+	# sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid FROM land_polygons WHERE wkb_geometry && !BBOX!"
 
 	# Water
 	[[providers.layers]]
@@ -113,137 +113,137 @@ password = "${OSM_DB_PASS}"
 	id_fieldname = "osm_id"
 	sql = "SELECT ST_AsBinary(geometry) AS geometry, osm_id, name, nullif(as_numeric(height),-1) AS height, type FROM osm_buildings WHERE geometry && !BBOX!"
 
-#	Natural Earth
-[[providers]]
-name = "ne"
-type = "postgis"
-host = "localhost"
-port = "5432"
-database = "natural_earth"
-user = "${NE_DB_USER}"
-password = "${NE_DB_PASS}"
+# #	Natural Earth
+# [[providers]]
+# name = "ne"
+# type = "postgis"
+# host = "localhost"
+# port = "5432"
+# database = "natural_earth"
+# user = "${NE_DB_USER}"
+# password = "${NE_DB_PASS}"
 
-	[[providers.layers]]
-	name = "ne_110m_admin_0_boundary_lines_land"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, min_zoom FROM ne_110m_admin_0_boundary_lines_land WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_110m_admin_0_boundary_lines_land"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, min_zoom FROM ne_110m_admin_0_boundary_lines_land WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_50m_admin_0_boundary_lines_land"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, min_zoom FROM ne_50m_admin_0_boundary_lines_land WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_50m_admin_0_boundary_lines_land"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, min_zoom FROM ne_50m_admin_0_boundary_lines_land WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_10m_admin_0_boundary_lines_land"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, min_zoom FROM ne_10m_admin_0_boundary_lines_land WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_10m_admin_0_boundary_lines_land"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, min_zoom FROM ne_10m_admin_0_boundary_lines_land WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_110m_admin_1_states_provinces_lines"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, adm0_name, min_zoom FROM ne_110m_admin_1_states_provinces_lines WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_110m_admin_1_states_provinces_lines"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, adm0_name, min_zoom FROM ne_110m_admin_1_states_provinces_lines WHERE wkb_geometry && !BBOX!"
 
-    [[providers.layers]]
-	name = "ne_50m_admin_1_states_provinces_lines"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, adm0_name, min_zoom FROM ne_50m_admin_1_states_provinces_lines WHERE wkb_geometry && !BBOX!"
+#     [[providers.layers]]
+# 	name = "ne_50m_admin_1_states_provinces_lines"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, adm0_name, min_zoom FROM ne_50m_admin_1_states_provinces_lines WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_10m_admin_1_states_provinces_lines"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, adm0_name, min_zoom, min_label FROM ne_10m_admin_1_states_provinces_lines WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_10m_admin_1_states_provinces_lines"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, name, adm0_name, min_zoom, min_label FROM ne_10m_admin_1_states_provinces_lines WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_110m_land"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, min_zoom FROM ne_110m_land WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_110m_land"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, min_zoom FROM ne_110m_land WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_50m_land"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, min_zoom FROM ne_50m_land WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_50m_land"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, min_zoom FROM ne_50m_land WHERE wkb_geometry && !BBOX!"
 
-	[[providers.layers]]
-	name = "ne_10m_land"
-	geometry_fieldname = "geometry"
-	id_fieldname = "ogc_fid"
-	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, min_zoom FROM ne_10m_land WHERE wkb_geometry && !BBOX!"
+# 	[[providers.layers]]
+# 	name = "ne_10m_land"
+# 	geometry_fieldname = "geometry"
+# 	id_fieldname = "ogc_fid"
+# 	sql = "SELECT ST_AsBinary(wkb_geometry) AS geometry, ogc_fid, featurecla, min_zoom FROM ne_10m_land WHERE wkb_geometry && !BBOX!"
 
 [[maps]]
 name = "osm"
 attribution = "OpenStreetMap" # map attribution
 center = [35.688, 139.8742, 8.0] # optional center value. part of the TileJSON spec
 
-	[[maps.layers]]
-	name = "country_lines"
-	provider_layer = "ne.ne_110m_admin_0_boundary_lines_land"
-	min_zoom = 0
-	max_zoom = 2
+	# [[maps.layers]]
+	# name = "country_lines"
+	# provider_layer = "ne.ne_110m_admin_0_boundary_lines_land"
+	# min_zoom = 0
+	# max_zoom = 2
 
-	[[maps.layers]]
-	name = "country_lines"
-	provider_layer = "ne.ne_50m_admin_0_boundary_lines_land"
-	dont_simplify = true
-	min_zoom = 3
-	max_zoom = 4
+	# [[maps.layers]]
+	# name = "country_lines"
+	# provider_layer = "ne.ne_50m_admin_0_boundary_lines_land"
+	# dont_simplify = true
+	# min_zoom = 3
+	# max_zoom = 4
 
-	[[maps.layers]]
-	name = "country_lines"
-	provider_layer = "ne.ne_10m_admin_0_boundary_lines_land"
-	min_zoom = 5
-	max_zoom = 10
+	# [[maps.layers]]
+	# name = "country_lines"
+	# provider_layer = "ne.ne_10m_admin_0_boundary_lines_land"
+	# min_zoom = 5
+	# max_zoom = 10
 
-	[[maps.layers]]
-	name = "state_lines"
-	provider_layer = "ne.ne_110m_admin_1_states_provinces_lines"
-	min_zoom = 0
-	max_zoom = 2
+	# [[maps.layers]]
+	# name = "state_lines"
+	# provider_layer = "ne.ne_110m_admin_1_states_provinces_lines"
+	# min_zoom = 0
+	# max_zoom = 2
 
-	[[maps.layers]]
-	name = "state_lines"
-	provider_layer = "ne.ne_50m_admin_1_states_provinces_lines"
-	min_zoom = 3
-	max_zoom = 4
+	# [[maps.layers]]
+	# name = "state_lines"
+	# provider_layer = "ne.ne_50m_admin_1_states_provinces_lines"
+	# min_zoom = 3
+	# max_zoom = 4
 
-	[[maps.layers]]
-	name = "state_lines"
-	provider_layer = "ne.ne_10m_admin_1_states_provinces_lines"
-	min_zoom = 5
-	max_zoom = 10
+	# [[maps.layers]]
+	# name = "state_lines"
+	# provider_layer = "ne.ne_10m_admin_1_states_provinces_lines"
+	# min_zoom = 5
+	# max_zoom = 10
 
-	# Land Polygons
-	[[maps.layers]]
-	name = "land"
-	provider_layer = "ne.ne_110m_land"
-	min_zoom = 0
-	max_zoom = 2
+	# # Land Polygons
+	# [[maps.layers]]
+	# name = "land"
+	# provider_layer = "ne.ne_110m_land"
+	# min_zoom = 0
+	# max_zoom = 2
 
-	[[maps.layers]]
-	name = "land"
-	provider_layer = "ne.ne_50m_land"
-	min_zoom = 3
-	max_zoom = 4
+	# [[maps.layers]]
+	# name = "land"
+	# provider_layer = "ne.ne_50m_land"
+	# min_zoom = 3
+	# max_zoom = 4
 
-	[[maps.layers]]
-	name = "land"
-	provider_layer = "ne.ne_10m_land"
-	min_zoom = 5
-	max_zoom = 7
+	# [[maps.layers]]
+	# name = "land"
+	# provider_layer = "ne.ne_10m_land"
+	# min_zoom = 5
+	# max_zoom = 7
 
-	[[maps.layers]]
-	name = "land"
-	provider_layer = "osm.land_8-20"
-	dont_simplify = true
-	min_zoom = 8
-	max_zoom = 20
+	# [[maps.layers]]
+	# name = "land"
+	# provider_layer = "osm.land_8-20"
+	# dont_simplify = true
+	# min_zoom = 8
+	# max_zoom = 20
 
 	# Water Areas
 	[[maps.layers]]
